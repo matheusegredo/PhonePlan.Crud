@@ -1,5 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PhonePlan.Application.Commands.PhonePlans.Post;
+using PhonePlan.Application.Commands.PhonePlans.Put;
+using PhonePlan.Application.Queries.PhonePlans.Get;
+using PhonePlan.Application.Queries.PhonePlans.Search;
 using System.Threading.Tasks;
 
 namespace PhonePlan.Crud.Controllers
