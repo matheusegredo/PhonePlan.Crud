@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PhonePlan.CrossCutting\PhonePlan.CrossCutting.csproj" />
     <ProjectReference Include="..\PhonePlan.Domain\PhonePlan.Domain.csproj" />
   </ItemGroup>
 
