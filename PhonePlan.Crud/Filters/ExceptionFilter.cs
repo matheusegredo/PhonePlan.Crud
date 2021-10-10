@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using PhonePlan.CrossCutting.Exceptions;
 using System.ComponentModel.DataAnnotations;
 
 namespace PhonePlan.Crud.Api.Filters
@@ -13,6 +14,7 @@ namespace PhonePlan.Crud.Api.Filters
 			context.Result = ex switch
 			{
 				ValidationException validation => PrepareBadRequestMessage(validation),
+				NotFoundException notFoundException => new NotFoundObjectResult(notFoundException.Message),
 				_ => new ObjectResult(string.Empty) { StatusCode = 500 }
 			};
 		}

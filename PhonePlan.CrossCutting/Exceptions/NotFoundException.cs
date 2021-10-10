@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace PhonePlan.Application.Commands.PhonePlans.Put
+namespace PhonePlan.CrossCutting.Exceptions
 {
 	public class NotFoundException : Exception
 	{
 		public NotFoundException(string message) : base(message)
 		{
-		}		
+		}
 	}
 }
