@@ -6,7 +6,7 @@ namespace PhonePlan.Domain
 {
 	public static class DependencyInjection
 	{
-		public static void InjectDomain(this IServiceCollection services)
+		public static void DomainInject(this IServiceCollection services)
 		{
 			services.AddDbContextPool<IApplicationDbContext, ApplicationDbContext>(
 				c =>

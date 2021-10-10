@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PhonePlan.Application;
+using PhonePlan.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace PhonePlan.Crud
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.ApplicationInject();
+			services.DomainInject();
 
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
