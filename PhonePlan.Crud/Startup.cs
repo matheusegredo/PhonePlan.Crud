@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PhonePlan.Application;
+using PhonePlan.Crud.Api.Pipelines;
 using PhonePlan.Domain;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,8 @@ namespace PhonePlan.Crud
 		{
 			services.ApplicationInject();
 			services.DomainInject();
+
+			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorPipeline<,>));
 
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
