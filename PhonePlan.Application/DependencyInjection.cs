@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PhonePlan.Application.Commands.PhonePlans.Post;
+using PhonePlan.Application.Profiles;
 
 namespace PhonePlan.Application
 {
@@ -9,6 +10,8 @@ namespace PhonePlan.Application
 		public static void ApplicationInject(this IServiceCollection services)
 		{
 			services.AddMediatR(typeof(PostPhonePlanCommand));
+
+			services.AddAutoMapper(typeof(PhonePlansProfiles));
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace PhonePlan.Domain.Entities
 {
-	public sealed class PhonePlans
+	public sealed class PhonePlansEntity
 	{
 		public int PlanCode { get; set; }
 

@@ -10,11 +10,11 @@ namespace PhonePlan.Domain.Context
 			Database.EnsureCreated();
 		}
 
-		public DbSet<PhonePlans> PhonePlans { get; set; }
+		public DbSet<PhonePlansEntity> PhonePlans { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<PhonePlans>()
+			modelBuilder.Entity<PhonePlansEntity>()
 				.HasKey(p => p.PlanCode);
 		}
 	}
