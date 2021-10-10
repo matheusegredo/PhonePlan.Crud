@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PhonePlan.Application.Commands.PhonePlans.Delete;
 using PhonePlan.Application.Commands.PhonePlans.Post;
 using PhonePlan.Application.Commands.PhonePlans.Put;
-using PhonePlan.Application.Queries.PhonePlans.Get;
 using PhonePlan.Application.Queries.PhonePlans.Search;
 using System.Threading.Tasks;
 
@@ -27,11 +27,11 @@ namespace PhonePlan.Crud.Controllers
 			return Ok(await _mediator.Send(query));
 		}
 
-		[HttpGet("{id}")]		
-		[ProducesResponseType(typeof(GetPhonePlanQueryResponse), 200)]
+		[HttpDelete("{id}")]		
+		[ProducesResponseType(typeof(Unit), 200)]
 		public async Task<IActionResult> Get([FromRoute] int id)
 		{
-			return Ok(await _mediator.Send(new GetPhonePlanQuery(id)));
+			return Ok(await _mediator.Send(new DeletePhonePlanCommand(id)));
 		}
 
 		[HttpPost]
@@ -41,8 +41,8 @@ namespace PhonePlan.Crud.Controllers
 			return Created(string.Empty, await _mediator.Send(command));
 		}
 
-		[HttpPut()]
-		[ProducesResponseType(typeof(GetPhonePlanQueryResponse), 200)]
+		[HttpPut]
+		[ProducesResponseType(typeof(Unit), 200)]
 		public async Task<IActionResult> Put([FromBody] PutPhonePlanCommand command)
 		{
 			return Ok(await _mediator.Send(command));
