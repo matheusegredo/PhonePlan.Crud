@@ -19,7 +19,6 @@ namespace PhonePlan.Crud.Controllers
 			_mediator = mediator;
 		}
 
-
 		[HttpGet]
 		[ProducesResponseType(typeof(SearchPhonePlansQueryResponse), 200)]
 		public async Task<IActionResult> Get([FromQuery] SearchPhonePlansQuery query)
