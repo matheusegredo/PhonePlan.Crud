@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PhonePlan.Application;
+using PhonePlan.Crud.Api.Filters;
 using PhonePlan.Crud.Api.Pipelines;
 using PhonePlan.Domain;
 using System;
@@ -35,7 +36,11 @@ namespace PhonePlan.Crud
 
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorPipeline<,>));
 
-			services.AddControllers();
+			services.AddControllers(opt =>
+			{
+				opt.Filters.Add<ExceptionFilter>();
+			});
+
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "PhonePlan.Crud", Version = "v1" });

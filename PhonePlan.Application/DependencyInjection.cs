@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PhonePlan.Application.Commands.PhonePlans.Post;
 using PhonePlan.Application.Profiles;
@@ -12,6 +13,8 @@ namespace PhonePlan.Application
 			services.AddMediatR(typeof(PostPhonePlanCommand));
 
 			services.AddAutoMapper(typeof(PhonePlansProfiles));
+
+			services.AddValidatorsFromAssembly(typeof(PostPhonePlanCommandValidator).Assembly);
 		}
 	}
 }
