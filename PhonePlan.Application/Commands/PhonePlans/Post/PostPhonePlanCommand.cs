@@ -7,6 +7,8 @@ namespace PhonePlan.Application.Commands.PhonePlans.Post
 	{
 		public int Minutes { get; set; }
 
+		public string DDD { get; set; }
+
 		public string InternetFranchise { get; set; }
 
 		public decimal Value { get; set; }

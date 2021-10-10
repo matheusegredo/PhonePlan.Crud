@@ -4,6 +4,8 @@
 	{
 		public int PlanCode { get; set; }
 
+		public string DDD { get; set; }
+
 		public int Minutes { get; set; }
 
 		public string InternetFranchise { get; set; }
