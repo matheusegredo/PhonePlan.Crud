@@ -1,6 +1,9 @@
-﻿namespace PhonePlan.Application.Queries.PhonePlans.Search
+﻿using MediatR;
+using System.Collections.Generic;
+
+namespace PhonePlan.Application.Queries.PhonePlans.Search
 {
-	public class SearchPhonePlansQuery
-	{
+	public class SearchPhonePlansQuery : IRequest<List<SearchPhonePlansQueryResponse>>
+	{		
 	}
 }
