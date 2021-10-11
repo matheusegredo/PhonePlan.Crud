@@ -26,7 +26,7 @@ namespace PhonePlan.Crud.Controllers
 			return Ok(await _mediator.Send(query));
 		}
 
-		[HttpDelete("{id}")]		
+		[HttpDelete]		
 		[ProducesResponseType(typeof(Unit), 200)]
 		public async Task<IActionResult> Get([FromBody] DeletePhonePlanCommand command)
 		{
