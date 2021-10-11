@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PhonePlan.CrossCutting.Exceptions;
 using PhonePlan.Domain.Context;
 using System.Threading;
 using System.Threading.Tasks;
