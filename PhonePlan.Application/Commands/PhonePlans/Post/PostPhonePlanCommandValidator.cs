@@ -6,14 +6,13 @@ namespace PhonePlan.Application.Commands.PhonePlans.Post
 	{
 		public PostPhonePlanCommandValidator()
 		{
+			RuleFor(p => p.PlanCode)
+				.NotEmpty()
+				.When(p => p.PhonePlanData is null);
+
 			RuleFor(p => p.DDD)
-				.NotEmpty();
-
-			RuleFor(p => p.PlanType)
-				.IsInEnum();
-
-			RuleFor(p => p.Operator)
-				.NotEmpty();			
+				.NotEmpty()
+				.MaximumLength(3);						
 		}
 	}
 }
