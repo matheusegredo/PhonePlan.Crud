@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePlan.Crud.Api", "PhonePlan.Crud\PhonePlan.Crud.Api.csproj", "{D2C8EE3B-F287-42B7-9ABD-7FBE3D82992F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhonePlan.Crud.Api", "PhonePlan.Crud\PhonePlan.Crud.Api.csproj", "{D2C8EE3B-F287-42B7-9ABD-7FBE3D82992F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{A3090466-F509-4731-96D0-F2E9E3C81F59}"
 EndProject
@@ -13,13 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - CrossCutting", "{B213EF0E-110B-408F-8091-39D7DD913D05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePlan.CrossCutting", "PhonePlan.CrossCutting\PhonePlan.CrossCutting.csproj", "{DA424438-4588-4644-BCDD-CB545FDA10B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhonePlan.CrossCutting", "PhonePlan.CrossCutting\PhonePlan.CrossCutting.csproj", "{DA424438-4588-4644-BCDD-CB545FDA10B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BF4005EE-0AC7-425A-840D-E7DB56A21668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePlan.Domain", "PhonePlan.Domain\PhonePlan.Domain.csproj", "{2A83D5B4-AEF6-4CCD-8BFC-584513A1E652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhonePlan.Domain", "PhonePlan.Domain\PhonePlan.Domain.csproj", "{2A83D5B4-AEF6-4CCD-8BFC-584513A1E652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePlan.Application", "PhonePlan.Application\PhonePlan.Application.csproj", "{C536027F-786B-4866-8820-8B173B3352DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhonePlan.Application", "PhonePlan.Application\PhonePlan.Application.csproj", "{C536027F-786B-4866-8820-8B173B3352DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{279D6BF6-483A-4B30-94F3-B4A61101EE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePlan.Crud.Application.Test", "PhonePlan.Crud.Application.Test\PhonePlan.Crud.Application.Test.csproj", "{EB74665D-AC6A-4533-B955-432F47B83D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{C536027F-786B-4866-8820-8B173B3352DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C536027F-786B-4866-8820-8B173B3352DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C536027F-786B-4866-8820-8B173B3352DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB74665D-AC6A-4533-B955-432F47B83D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB74665D-AC6A-4533-B955-432F47B83D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB74665D-AC6A-4533-B955-432F47B83D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB74665D-AC6A-4533-B955-432F47B83D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{DA424438-4588-4644-BCDD-CB545FDA10B3} = {B213EF0E-110B-408F-8091-39D7DD913D05}
 		{2A83D5B4-AEF6-4CCD-8BFC-584513A1E652} = {FB43E656-58B3-4F98-B0B8-96FABF58B7EE}
 		{C536027F-786B-4866-8820-8B173B3352DD} = {234C8E5C-DC14-4FA0-9DED-AE7BD346C131}
+		{EB74665D-AC6A-4533-B955-432F47B83D82} = {279D6BF6-483A-4B30-94F3-B4A61101EE18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC812B7B-A142-4936-855A-325DE818577E}
