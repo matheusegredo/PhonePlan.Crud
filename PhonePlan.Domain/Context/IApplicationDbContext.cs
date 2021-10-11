@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using PhonePlan.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,5 +15,7 @@ namespace PhonePlan.Domain.Context
 		DbSet<DirectRemoteDialingPhonePlanEntity> DirectRemoteDialingPhonePlan { get; set; }
 
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+		ChangeTracker ChangeTracker { get; }
 	}
 }

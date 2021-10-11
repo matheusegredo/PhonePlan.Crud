@@ -3,6 +3,7 @@ using MediatR;
 using PhonePlan.Application.Commands.PhonePlans.Post;
 using PhonePlan.Application.Profiles;
 using PhonePlan.CrossCutting.Exceptions;
+using PhonePlan.Domain.Context;
 using PhonePlan.Domain.Entities;
 using System.Threading.Tasks;
 using Xunit;

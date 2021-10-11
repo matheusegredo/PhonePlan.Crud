@@ -1,15 +1,14 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using PhonePlan.Domain.Context;
 using PhonePlan.Domain.Entities;
 using System.Collections.Generic;
 
-namespace PhonePlan.Crud.Application.Test
+namespace PhonePlan.Domain.Context
 {
 	public static class ApplicationDbContextFactory
 	{
 		public static IApplicationDbContext Create()
-		{ 	
+		{
 			var connection = new SqliteConnection("DataSource=:memory:;");
 			connection.Open();
 
@@ -19,6 +18,13 @@ namespace PhonePlan.Crud.Application.Test
 
 			var context = new ApplicationDbContext(builder.Options);
 
+			Seed(context);
+
+			return context;
+		}
+
+		public static void Seed(IApplicationDbContext context)
+		{
 			var phonePlans = new List<PhonePlansEntity>
 			{
 				new PhonePlansEntity { PlanCode = 1, Minutes = 100, InternetFranchise = "100GB", Value = 110.99M, PlanType = PlanType.Pos, Operator = "Claro" },
@@ -32,10 +38,10 @@ namespace PhonePlan.Crud.Application.Test
 				new DirectRemoteDialingEntity { DirectRemoteDialingCode = 2, Code = "021" },
 			};
 
-			context.AddRange(phonePlans);
-			context.AddRange(ddds);
+			context.PhonePlans.AddRange(phonePlans);
+			context.DirectRemoteDialing.AddRange(ddds);
 
-			context.SaveChanges();
+			context.SaveChangesAsync().ConfigureAwait(false).GetAwaiter().GetResult();
 
 			var dddsPhonePlans = new List<DirectRemoteDialingPhonePlanEntity>
 			{
@@ -47,15 +53,13 @@ namespace PhonePlan.Crud.Application.Test
 			};
 
 			context.DirectRemoteDialingPhonePlan.AddRange(dddsPhonePlans);
-			context.SaveChanges();
+			context.SaveChangesAsync().ConfigureAwait(false).GetAwaiter().GetResult();
 
 			foreach (var dbEntityEntry in context.ChangeTracker.Entries())
 			{
 				if (dbEntityEntry.Entity is not null)
 					dbEntityEntry.State = EntityState.Detached;
 			}
-
-			return context;
 		}
 	}
 }

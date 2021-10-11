@@ -38,7 +38,7 @@ namespace PhonePlan.Domain.Context
 
 			modelBuilder.Entity<DirectRemoteDialingPhonePlanEntity>()
 				.ToTable("DirectRemoteDialingPhonePlan")
-				.HasKey(p => p.DirectRemoteDialingPhonePlanCode);			
+				.HasKey(p => p.DirectRemoteDialingPhonePlanCode);
 		}
 	}
 }

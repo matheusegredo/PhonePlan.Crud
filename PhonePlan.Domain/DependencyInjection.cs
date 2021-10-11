@@ -10,12 +10,17 @@ namespace PhonePlan.Domain
 		public static void DomainInject(this IServiceCollection services)
 		{
 			var connection = new SqliteConnection("DataSource=:memory:;");
-			connection.Open();
+			connection.Open();			
 
 			services.AddDbContextPool<IApplicationDbContext, ApplicationDbContext>(
 				c =>
 					c.UseSqlite(connection)
 				);
+
+			var serviceProvider = services.BuildServiceProvider();
+			var context = serviceProvider.GetRequiredService<IApplicationDbContext>();
+
+			ApplicationDbContextFactory.Seed(context);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PhonePlan.Application.Profiles;
 using PhonePlan.Application.Queries.PhonePlans.Search;
+using PhonePlan.Domain.Context;
 using PhonePlan.Domain.Entities;
 using System.Threading.Tasks;
 using Xunit;
