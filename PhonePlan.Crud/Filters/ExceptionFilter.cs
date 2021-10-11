@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PhonePlan.CrossCutting.Exceptions;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace PhonePlan.Crud.Api.Filters
 {
@@ -21,7 +22,7 @@ namespace PhonePlan.Crud.Api.Filters
 
 		private static BadRequestObjectResult PrepareBadRequestMessage(ValidationException ex)
 		{
-			return new BadRequestObjectResult(new { errors = ex.Message });
+			return new BadRequestObjectResult(new { errors = ex.Errors.Select(p => p.ErrorMessage) });
 		}
 	}
 }

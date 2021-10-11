@@ -8,6 +8,9 @@ namespace PhonePlan.Application.Commands.PhonePlans.Delete
 		{
 			RuleFor(p => p.PlanCode)
 				.NotEmpty();
+
+			RuleFor(p => p.DDD)
+				.MaximumLength(3);
 		}
 	}
 }

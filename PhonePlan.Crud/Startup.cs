@@ -1,3 +1,4 @@
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using PhonePlan.Crud.Api.Pipelines;
 using PhonePlan.Domain;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,13 +30,14 @@ namespace PhonePlan.Crud
 
 		public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.ApplicationInject();
 			services.DomainInject();
 
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorPipeline<,>));
+
+			ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("en-US");
 
 			services.AddControllers(opt =>
 			{
@@ -47,7 +50,6 @@ namespace PhonePlan.Crud
 			});
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			if (env.IsDevelopment())

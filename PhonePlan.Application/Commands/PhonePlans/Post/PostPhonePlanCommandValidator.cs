@@ -12,7 +12,23 @@ namespace PhonePlan.Application.Commands.PhonePlans.Post
 
 			RuleFor(p => p.DDD)
 				.NotEmpty()
-				.MaximumLength(3);						
+				.MaximumLength(3);
+
+			RuleFor(p => p.PhonePlanData)
+				.SetValidator(new PostPhonePlanDataCommandValidator())
+				.When(p => p.PhonePlanData is not null);
+		}
+	}
+
+	public class PostPhonePlanDataCommandValidator : AbstractValidator<PostPhonePlanDataCommand>
+	{
+		public PostPhonePlanDataCommandValidator()
+		{
+			RuleFor(p => p.PlanType)
+				.IsInEnum();
+
+			RuleFor(p => p.Operator)
+				.NotEmpty();				
 		}
 	}
 }
