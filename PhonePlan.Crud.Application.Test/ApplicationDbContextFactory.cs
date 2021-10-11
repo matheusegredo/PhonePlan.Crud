@@ -23,7 +23,7 @@ namespace PhonePlan.Crud.Application.Test
 			{
 				new PhonePlansEntity { PlanCode = 1, Minutes = 100, InternetFranchise = "100GB", Value = 110.99M, PlanType = PlanType.Pos, Operator = "Claro" },
 				new PhonePlansEntity { PlanCode = 2, Minutes = 100, InternetFranchise = "100GB", Value = 45.99M, PlanType = PlanType.Pre, Operator = "Claro" },
-				new PhonePlansEntity { PlanCode = 3, Minutes = 100, InternetFranchise = "100GB", Value = 90.99M, PlanType = PlanType.Controle, Operator = "Claro" }
+				new PhonePlansEntity { PlanCode = 3, Minutes = 100, InternetFranchise = "100GB", Value = 90.99M, PlanType = PlanType.Pre, Operator = "Claro" }
 			};
 
 			var ddds = new List<DirectRemoteDialingEntity>

@@ -13,7 +13,6 @@ namespace PhonePlan.Application.Queries.PhonePlans.Search
 
 		public string Operator { get; set; }
 
-		[NotNull]
 		public string DDD { get; set; }
 	}
 }
