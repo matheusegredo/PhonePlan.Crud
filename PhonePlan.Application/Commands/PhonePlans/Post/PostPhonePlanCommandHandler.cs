@@ -50,6 +50,18 @@ namespace PhonePlan.Application.Commands.PhonePlans.Post
 			else
 				directRemoteDialingPhonePlan.DirectRemoteDialingCode = directRemoteDialing.DirectRemoteDialingCode;
 
+			if (directRemoteDialingPhonePlan.DirectRemoteDialingCode is not default(int) && directRemoteDialingPhonePlan.PhonePlanCode is not default(int))
+			{
+				var existingDirectRemoteDialingPhonePlan = await _applicationDbContext.DirectRemoteDialingPhonePlan
+					.Where(p => p.DirectRemoteDialingCode == directRemoteDialingPhonePlan.DirectRemoteDialingCode
+							&& p.PhonePlanCode == directRemoteDialingPhonePlan.PhonePlanCode)
+					.Select(p => new DirectRemoteDialingPhonePlanEntity { DirectRemoteDialingPhonePlanCode = p.DirectRemoteDialingPhonePlanCode })
+					.FirstOrDefaultAsync(cancellationToken);
+
+				if (existingDirectRemoteDialingPhonePlan is not null)
+					throw new InvalidRequestException("Phone plan already exist for the informed ddd");
+			}
+
 			_applicationDbContext.DirectRemoteDialingPhonePlan.Add(directRemoteDialingPhonePlan);
 			await _applicationDbContext.SaveChangesAsync(cancellationToken);
 
