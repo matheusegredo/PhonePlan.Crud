@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PhonePlan.Domain.Context;
+using Microsoft.Data.Sqlite;
 
 namespace PhonePlan.Domain
 {
@@ -8,11 +9,13 @@ namespace PhonePlan.Domain
 	{
 		public static void DomainInject(this IServiceCollection services)
 		{
+			var connection = new SqliteConnection("DataSource=:memory:;");
+			connection.Open();
+
 			services.AddDbContextPool<IApplicationDbContext, ApplicationDbContext>(
 				c =>
-					c.UseInMemoryDatabase(databaseName: "ApplicationContext")
-					);
-
+					c.UseSqlite(connection)
+				);
 		}
 	}
 }

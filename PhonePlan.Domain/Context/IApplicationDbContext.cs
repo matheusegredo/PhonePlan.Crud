@@ -7,7 +7,11 @@ namespace PhonePlan.Domain.Context
 {
 	public interface IApplicationDbContext
 	{
-		public DbSet<PhonePlansEntity> PhonePlans { get; set; }
+		DbSet<PhonePlansEntity> PhonePlans { get; set; }
+
+		DbSet<DirectRemoteDialingEntity> DirectRemoteDialing { get; set; }
+
+		DbSet<DirectRemoteDialingPhonePlanEntity> DirectRemoteDialingPhonePlan { get; set; }
 
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 	}
