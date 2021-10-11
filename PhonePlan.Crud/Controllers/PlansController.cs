@@ -28,9 +28,9 @@ namespace PhonePlan.Crud.Controllers
 
 		[HttpDelete("{id}")]		
 		[ProducesResponseType(typeof(Unit), 200)]
-		public async Task<IActionResult> Get([FromRoute] int id)
+		public async Task<IActionResult> Get([FromBody] DeletePhonePlanCommand command)
 		{
-			return Ok(await _mediator.Send(new DeletePhonePlanCommand(id)));
+			return Ok(await _mediator.Send(command));
 		}
 
 		[HttpPost]

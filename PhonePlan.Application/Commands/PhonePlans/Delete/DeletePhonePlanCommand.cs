@@ -10,5 +10,7 @@ namespace PhonePlan.Application.Commands.PhonePlans.Delete
 		}
 
 		public int PlanCode { get; set; }
+
+		public string DDD { get; set; }
 	}
 }
