@@ -16,6 +16,7 @@ namespace PhonePlan.Crud.Api.Filters
 			{
 				ValidationException validation => PrepareBadRequestMessage(validation),
 				NotFoundException notFoundException => new NotFoundObjectResult(notFoundException.Message),
+				InvalidRequestException invalidRequestException => new BadRequestObjectResult(invalidRequestException.Message),
 				_ => new ObjectResult(string.Empty) { StatusCode = 500 }
 			};
 		}
