@@ -38,15 +38,7 @@ namespace PhonePlan.Domain.Context
 
 			modelBuilder.Entity<DirectRemoteDialingPhonePlanEntity>()
 				.ToTable("DirectRemoteDialingPhonePlan")
-				.HasKey(p => p.DirectRemoteDialingPhonePlanCode);
-
-			//modelBuilder.Entity<DirectRemoteDialingPhonePlanEntity>()
-			//	.HasOne(p => p.DirectRemoteDialing)
-			//	.WithMany();
-
-			//modelBuilder.Entity<DirectRemoteDialingPhonePlanEntity>()
-			//	.HasOne(p => p.PhonePlans)
-			//	.WithMany();
+				.HasKey(p => p.DirectRemoteDialingPhonePlanCode);			
 		}
 	}
 }
