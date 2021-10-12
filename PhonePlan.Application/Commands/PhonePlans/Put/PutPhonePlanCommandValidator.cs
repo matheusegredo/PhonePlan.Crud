@@ -8,6 +8,9 @@ namespace PhonePlan.Application.Commands.PhonePlans.Put
 		{
 			RuleFor(p => p.PlanCode)
 				.NotEmpty();
+
+			RuleFor(p => p.PlanType)
+				.IsInEnum();
 		}		
 	}
 }
