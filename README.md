@@ -25,26 +25,26 @@ Execução via Visual Studio/IIS Express
 
 GET: /api/plans
 > Método para buscar planos a partir de um DDD obrigatório e filtros opcionais.
-> Parametros:
-- PlanCode int
-- PlanType int (1 = Controle, 2 = Pos, 3 = Pre)
-- Operator string
-- DDD string *obrigatório*
+- Parametros:
+1 PlanCode int
+2 PlanType int (1 = Controle, 2 = Pos, 3 = Pre)
+3 Operator string
+4 DDD string *obrigatório*
 
 DELETE: /api/plans
 > Método para excluir um plano de um DDD, ou o plano todo.
-> Request:
-{
+- Request:
+```json{
   "planCode": 0, // *obrigatório*
   "ddd": "string"
-}
-> Para excluir o plano do DDD, deve ser passado os parametros.
-> Para excluir o plano como um todo, informar apenas o PlanCode.
+}```
+- Para excluir o plano do DDD, deve ser passado os parametros.
+- Para excluir o plano como um todo, informar apenas o PlanCode.
 
 POST: /api/plans
 > Método para adicionar um novo plano ou vincular um plano existente com um DDD.
-> Request:
-{
+- Request:
+```json {
   "ddd": "string", // *obrigatório*
   "planCode": 0,
   "phonePlanData": {
@@ -54,18 +54,19 @@ POST: /api/plans
     "planType": 1, // (1 = Controle, 2 = Pos, 3 = Pre)
     "operator": "string"
   }
-}
-> Para incluir um novo plano, enviar os campos de phonePlanData.
+}```
+
+- Para incluir um novo plano, enviar os campos de phonePlanData.
 - As propriedades PlanType e Operator são obrigatórias.
-> Para vincluar um plano existente a um DDD, enviar o planCode.
+- Para vincluar um plano existente a um DDD, enviar o planCode.
 
 PUT: /api/plans
 > Método para atualizar um plano existente.
-> Request:
-{
+- Request:
+```json{
   "planCode": 0, // *obrigatório*
   "minutes": 0,
   "internetFranchise": "string",
   "value": 0,
   "planType": 1 // (1 = Controle, 2 = Pos, 3 = Pre)
-}
+}```
